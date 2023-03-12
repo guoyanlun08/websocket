@@ -7,7 +7,7 @@
 npm install
 
 # 后台服务
-node ./server.js
+进入src目录 node ./server.js
 
 # 前端
 打开 Html文件
