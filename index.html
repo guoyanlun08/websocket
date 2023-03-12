@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta  http-equiv = "Access-Control-Allow-Origin"  content = "*" > -->
+    <title>Document</title>
+</head>
+<body>
+    <button id="startBtn">连接 WebSocket</button>
+    <button id="endBtn">断连 WebSocket</button>
+    <button id="messageBtn">send message</button>
+
+    <script src="./socket.js"></script>
+    <script>
+        const startBtn = document.getElementById('startBtn')
+        const endBtn = document.getElementById('endBtn')
+        const messageBtn = document.getElementById('messageBtn')
+        let ws
+
+        startBtn.addEventListener('click', () => {
+            ws = new Ws('ws://localhost:8080')
+        })
+        
+        endBtn.addEventListener('click', () => {
+            ws.close()
+        })
+
+        messageBtn.addEventListener('click', () => {
+            const message = '客户端发送一条消息'
+            ws.send(message)
+        })
+
+    </script>
+</body>
+</html>
